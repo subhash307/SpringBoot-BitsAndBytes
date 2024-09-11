@@ -25,7 +25,7 @@ This is a **Spring Boot** application designed to manage a product service. It d
 
 ### Step 1: Clone the Repository
 ```
-	git clone https://github.com/yourusername/product-service.git
+	git clone https://github.com/subhash307/SpringBoot-BitsAndBytes.git
 ```
 
 ### Step 2: Build and Run the Application
