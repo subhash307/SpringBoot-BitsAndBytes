@@ -11,8 +11,8 @@ This is a **Spring Boot** application designed to manage a product service. It d
 - **Java 17**
 - **Spring Boot 3.x**
 - **Spring Data JPA**
-- **MySQL** and **MongoDB**  -------------------[(Coming soon)]_
-- **Swagger** for API documentation ------------[(Coming soon)]_
+- **MySQL** and **MongoDB**  -------------------_[(Coming soon)]_
+- **Swagger** for API documentation ------------_[(Coming soon)]_
 - **Lombok** for cleaner code 
 - **Maven** for dependency management
 
