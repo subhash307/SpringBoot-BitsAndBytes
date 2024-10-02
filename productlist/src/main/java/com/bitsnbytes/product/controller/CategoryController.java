@@ -1,6 +1,7 @@
 package com.bitsnbytes.product.controller;
 
 import com.bitsnbytes.product.dto.CategoryDTO;
+import com.bitsnbytes.product.exception.CategoryAlreadyExistsException;
 import com.bitsnbytes.product.service.CategoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,8 +23,10 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<CategoryDTO> createCategory(@RequestBody CategoryDTO categoryDTO){
-        return new ResponseEntity<>(categoryService.createCategory(categoryDTO), HttpStatus.CREATED);
+    public ResponseEntity<?> createCategory(@RequestBody CategoryDTO categoryDTO){
+            CategoryDTO savedCategory = categoryService.createCategory(categoryDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedCategory);
+
     }
     // get category by id
     @GetMapping("/{id}")
