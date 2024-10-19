@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -52,6 +53,7 @@ public class ProductController {
             responseCode = "201",
             description = "CREATED"
     )
+    @PreAuthorize("hasAuthority('ROLE_SELLER')")
     @PostMapping
     public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO productDTO){
         ProductDTO createdProduct = productService.createProduct(productDTO);
@@ -62,6 +64,7 @@ public class ProductController {
             summary = "Update product by productId",
             description = "REST API to update product by productId."
     )
+    @PreAuthorize("hasAuthority('ROLE_SELLER')")
     @PutMapping("/{id}")
     public ProductDTO updateProduct(@PathVariable Long id, @RequestBody ProductDTO productDTO){
         return productService.updateProduct(id, productDTO);
@@ -72,6 +75,7 @@ public class ProductController {
             summary = "delete product by productId",
             description = "REST API to delete product by productId."
     )
+    @PreAuthorize("hasAuthority('ROLE_SELLER')")
     @DeleteMapping("/{id}")
     public String deleteProduct(@PathVariable Long id){
         return productService.deleteProduct(id);
